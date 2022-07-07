@@ -11,12 +11,13 @@ import java.util.Random;
 
 public class AntiDup implements Listener {
     int lastDelay;
+    Random ran = new Random();
 
     @EventHandler
     public void onBreak(BlockFromToEvent e){
         Block block = e.getToBlock();
         if(e.getBlock().getType() != Material.WATER))return;
-        if(block.getType().equals(Material.TRIPWIRE)){
+        if(block.getType() == (Material.TRIPWIRE)){
             e.setCancelled(true);
             breakLater(block);
         }
@@ -34,7 +35,6 @@ public class AntiDup implements Listener {
 
 
     private long getRandomDelay() {
-        Random ran = new Random();
         int delay = ran.nextInt(5);
         if (delay == getLastDelay() || delay == 0) delay += 1;
         setLastDelay(delay);
