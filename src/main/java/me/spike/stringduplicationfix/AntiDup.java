@@ -21,6 +21,8 @@ public class AntiDup implements Listener {
             breakLater(block);
         }
     }
+    
+    
     private void breakLater(Block block){
         new BukkitRunnable(){
             @Override
@@ -29,6 +31,8 @@ public class AntiDup implements Listener {
             }
         }.runTaskLater(StringDuplicationFix.getInstance(), getRandomDelay());
     }
+    
+    
     private long getRandomDelay() {
         Random ran = new Random();
         int delay = ran.nextInt(5);
@@ -38,10 +42,15 @@ public class AntiDup implements Listener {
         return delay * 5;
     }
 
+    
     private void setLastDelay(int last){
         this.lastDelay = last;
     }
+    
+    
     private int getLastDelay(){
         return lastDelay;
     }
+    
+    
 }
