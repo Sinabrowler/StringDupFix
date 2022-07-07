@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class BlockFromToEventListener implements Listener {
 
-    int lastDelay;
-    Random ran = new Random();
+    private final Random ran = new Random();
+    private int lastDelay;
     
     @EventHandler
     public void onBreak(BlockFromToEvent e){
