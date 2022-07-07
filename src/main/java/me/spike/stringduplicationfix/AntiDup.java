@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Random;
 
-public class AntiDup implements Listener {
+public class BlockFromToEvent implements Listener {
     int lastDelay;
     Random ran = new Random();
     
