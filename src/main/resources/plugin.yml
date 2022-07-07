@@ -1,0 +1,4 @@
+name: StringDuplicationFix
+version: '${version}'
+main: me.spike.stringduplicationfix.StringDuplicationFix
+api-version: 1.16
