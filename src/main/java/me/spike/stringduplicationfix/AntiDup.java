@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Random;
 
-public class BlockFromToEvent implements Listener {
+public class BlockFromToEventListener implements Listener {
     int lastDelay;
     Random ran = new Random();
     
@@ -36,8 +36,6 @@ public class BlockFromToEvent implements Listener {
         setLastDelay(delay);
         return delay * 5;
     }
-
-
     private void setLastDelay(int last){
         this.lastDelay = last;
     }
