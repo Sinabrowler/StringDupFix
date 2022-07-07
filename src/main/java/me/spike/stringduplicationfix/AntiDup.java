@@ -10,35 +10,49 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.Random;
 
 public class BlockFromToEventListener implements Listener {
+
     int lastDelay;
     Random ran = new Random();
     
     @EventHandler
     public void onBreak(BlockFromToEvent e){
+
         Block block = e.getToBlock();
-        if(e.getBlock().getType() != Material.WATER))return;
-        if(block.getType() == (Material.TRIPWIRE)){
+
+        if (e.getBlock().getType() != Material.WATER))
+            return;
+
+        if (block.getType() == (Material.TRIPWIRE)) {
             e.setCancelled(true);
             breakLater(block);
         }
     }
+
     private void breakLater(Block block){
+
         new BukkitRunnable(){
+
             @Override
             public void run() {
-                if(block.getType().equals(Material.TRIPWIRE)) block.breakNaturally();
+                if (block.getType().equals(Material.TRIPWIRE))
+                    block.breakNaturally();
             }
         }.runTaskLater(StringDuplicationFix.getInstance(), getRandomDelay());
     }
+
     private long getRandomDelay() {
+
         int delay = ran.nextInt(5);
+
         if (delay == getLastDelay() || delay == 0) delay += 1;
         setLastDelay(delay);
         return delay * 5;
     }
+
     private void setLastDelay(int last){
         this.lastDelay = last;
     }
+
     private int getLastDelay(){
         return lastDelay;
     }
