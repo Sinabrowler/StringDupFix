@@ -10,6 +10,6 @@ public final class StringDuplicationFix extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        getServer().getPluginManager().registerEvents(new AntiDup(), this);
+        getServer().getPluginManager().registerEvents(new BlockFromToEventListener(), this);
     }
 }
