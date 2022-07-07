@@ -19,11 +19,9 @@ public class AntiDup implements Listener {
         Block block = e.getToBlock();
 
         if(!(e.getBlock().getType().equals(Material.WATER)))return;
-
         if(block.getType().equals(Material.TRIPWIRE)){
-
+            
             e.setCancelled(true);
-
             breakLater(block);
 
         }
