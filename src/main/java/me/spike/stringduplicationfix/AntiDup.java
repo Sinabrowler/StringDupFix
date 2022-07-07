@@ -12,7 +12,7 @@ import java.util.Random;
 public class AntiDup implements Listener {
     int lastDelay;
     Random ran = new Random();
-
+    
     @EventHandler
     public void onBreak(BlockFromToEvent e){
         Block block = e.getToBlock();
@@ -22,8 +22,6 @@ public class AntiDup implements Listener {
             breakLater(block);
         }
     }
-
-
     private void breakLater(Block block){
         new BukkitRunnable(){
             @Override
@@ -32,8 +30,6 @@ public class AntiDup implements Listener {
             }
         }.runTaskLater(StringDuplicationFix.getInstance(), getRandomDelay());
     }
-
-
     private long getRandomDelay() {
         int delay = ran.nextInt(5);
         if (delay == getLastDelay() || delay == 0) delay += 1;
@@ -45,10 +41,7 @@ public class AntiDup implements Listener {
     private void setLastDelay(int last){
         this.lastDelay = last;
     }
-
-
     private int getLastDelay(){
         return lastDelay;
     }
-
 }
